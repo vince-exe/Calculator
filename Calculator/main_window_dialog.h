@@ -18,15 +18,11 @@ public:
 private slots:
     void on_imgBtn_clicked();
 
-    void on_percentageBtn_clicked();
-
     void on_CE_Btn_clicked();
 
     void on_C_Btn_clicked();
 
     void on_DEL_Btn_clicked();
-
-    void on_X_Btn_clicked();
 
     void on_X2_Btn_clicked();
 
@@ -67,6 +63,10 @@ private slots:
     void on_moltiplicationBtn_clicked();
 
     void on_numbersBox_textChanged(const QString &arg1);
+
+    void on_X3_Btn_clicked();
+
+    void on_XY_Btn_clicked();
 
 private:
     Ui::MainWindowDialog *ui;

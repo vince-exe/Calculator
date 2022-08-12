@@ -493,7 +493,7 @@ background-color: rgb(89, 89, 89);
     <string>²√x</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="X_Btn">
+  <widget class="QPushButton" name="X3_Btn">
    <property name="geometry">
     <rect>
      <x>5</x>
@@ -515,7 +515,7 @@ background-color: rgb(89, 89, 89);
 }</string>
    </property>
    <property name="text">
-    <string>1/x</string>
+    <string>x³</string>
    </property>
   </widget>
   <widget class="QPushButton" name="CE_Btn">
@@ -593,7 +593,7 @@ background-color: rgb(89, 89, 89);
     <string>C</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="percentageBtn">
+  <widget class="QPushButton" name="XY_Btn">
    <property name="geometry">
     <rect>
      <x>5</x>
@@ -606,7 +606,7 @@ background-color: rgb(89, 89, 89);
     <string notr="true">QPushButton {
 	background-color: rgb(50, 50, 50);
 	border-radius: 4px;
-	font: 700 18pt &quot;Segoe UI&quot;;
+	font: 700 17pt &quot;Segoe UI&quot;;
 	color: rgb(255, 255, 255);
 }
 
@@ -615,7 +615,7 @@ background-color: rgb(89, 89, 89);
 }</string>
    </property>
    <property name="text">
-    <string>%</string>
+    <string>x^y</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="numbersBox">

@@ -5,6 +5,8 @@
 #include <QPixmap>
 #include <QKeyEvent>
 
+#include <math.h>
+
 /* global variable used to check if the history label is hidden */
 bool historyLabelVisible = false;
 
@@ -149,31 +151,44 @@ void MainWindowDialog::on_DivisionBtn_clicked() {
 }
 
 void MainWindowDialog::on_commaBtn_clicked() {
-
+    if(!ui->numbersBox->text().length()) { return; }
 }
 
 /* + / - */
 void MainWindowDialog::on_plusMinusBtn_clicked() {
+    if(!ui->numbersBox->text().length()) { return; }
 
+    ui->numbersBox->setText(QString::number(ui->numbersBox->text().toLongLong() * -1));
 }
 
-/* 1 / x */
-void MainWindowDialog::on_X_Btn_clicked() {
+/* x^3 */
+void MainWindowDialog::on_X3_Btn_clicked() {
+    if(!ui->numbersBox->text().length()) { return; }
 
+    ui->numbersBox->setText(QString::number(pow(ui->numbersBox->text().toLongLong(), 3)));
 }
 
 /* x^2 */
 void MainWindowDialog::on_X2_Btn_clicked() {
+    if(!ui->numbersBox->text().length()) { return; }
 
+    ui->numbersBox->setText(QString::number(pow(ui->numbersBox->text().toLongLong(), 2)));
 }
 
 /* root */
 void MainWindowDialog::on_rootBtn_clicked() {
+    if(!ui->numbersBox->text().length()) { return; }
 
+    ui->numbersBox->setText(QString::number(sqrt(ui->numbersBox->text().toLongLong())));
 }
 
-void MainWindowDialog::on_percentageBtn_clicked() {
+/* x^y */
+void MainWindowDialog::on_XY_Btn_clicked() {
+    if(!ui->numbersBox->text().length()) { return; }
 
+    firstNumber = ui->numbersBox->text().toLongLong();
+    ui->numbersBox->clear();
+    lastOperation = '^';
 }
 
 /* RESULT BUTTON */
@@ -202,6 +217,11 @@ void MainWindowDialog::on_equalsBtn_clicked() {
 
     case '/':
         ui->numbersBox->setText(QString::number(firstNumber / secondNumber));
+        lastOperation = '.';
+        break;
+
+    case '^':
+        ui->numbersBox->setText(QString::number(pow(firstNumber, ui->numbersBox->text().toInt())));
         lastOperation = '.';
         break;
 
@@ -265,39 +285,22 @@ void MainWindowDialog::keyPressEvent(QKeyEvent *event) {
         break;
 
     case Qt::Key_Plus:
-        if(!ui->numbersBox->text().length()) { break; }
-
-        firstNumber = ui->numbersBox->text().toLongLong();
-        lastOperation = '+';
-        ui->numbersBox->clear();
+        on_plusBtn_clicked();
         break;
 
     case Qt::Key_Minus:
-        if(!ui->numbersBox->text().length()) { break; }
-
-        firstNumber = ui->numbersBox->text().toLongLong();
-        lastOperation = '-';
-        ui->numbersBox->clear();
+        on_minusBtn_clicked();
         break;
 
     case Qt::Key_multiply:
-        if(!ui->numbersBox->text().length()) { break; }
-
-        firstNumber = ui->numbersBox->text().toLongLong();
-        lastOperation = '*';
-        ui->numbersBox->clear();
+        on_moltiplicationBtn_clicked();
         break;
 
     case Qt::Key_Slash:
-        if(!ui->numbersBox->text().length()) { break; }
-
-        firstNumber = ui->numbersBox->text().toLongLong();
-        lastOperation = '/';
-        ui->numbersBox->clear();
+        on_DivisionBtn_clicked();
         break;
 
     default:
         break;
     }
 }
-
