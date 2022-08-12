@@ -16,8 +16,6 @@ public:
     ~MainWindowDialog();
 
 private slots:
-    void on_imgBtn_clicked();
-
     void on_CE_Btn_clicked();
 
     void on_C_Btn_clicked();
@@ -52,8 +50,6 @@ private slots:
 
     void on_zeroBtn_clicked();
 
-    void on_commaBtn_clicked();
-
     void on_equalsBtn_clicked();
 
     void on_plusBtn_clicked();
@@ -67,6 +63,8 @@ private slots:
     void on_X3_Btn_clicked();
 
     void on_XY_Btn_clicked();
+
+    void on_PiGreco_clicked();
 
 private:
     Ui::MainWindowDialog *ui;

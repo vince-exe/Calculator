@@ -68,7 +68,7 @@ background-color: rgb(50, 50, 50);
     <string>0</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="commaBtn">
+  <widget class="QPushButton" name="PiGreco">
    <property name="geometry">
     <rect>
      <x>165</x>
@@ -90,7 +90,7 @@ background-color: rgb(50, 50, 50);
 }</string>
    </property>
    <property name="text">
-    <string>,</string>
+    <string>π</string>
    </property>
   </widget>
   <widget class="QPushButton" name="equalsBtn">
@@ -651,52 +651,6 @@ background-color: rgb(89, 89, 89);
    </property>
    <property name="placeholderText">
     <string>0</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="imgBtn">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>10</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-background-color: rgb(32, 32, 32);
-border: none;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="historyLabel">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>180</y>
-     <width>326</width>
-     <height>321</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-	background-color: rgb(32, 32, 32);
-}</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="indent">
-    <number>-1</number>
    </property>
   </widget>
  </widget>

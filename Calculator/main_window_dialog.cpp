@@ -7,11 +7,8 @@
 
 #include <math.h>
 
-/* global variable used to check if the history label is hidden */
-bool historyLabelVisible = false;
-
 /* max limit of numbers to digit */
-const int numbersLimit = 16;
+const int numbersLimit = 14;
 
 /* take care of saving the first number */
 long long int firstNumber = 0;
@@ -19,30 +16,18 @@ long long int firstNumber = 0;
 /* take care of saving the last selected operation before the equals */
 char lastOperation;
 
+bool cleanAfter = false;
+
 MainWindowDialog::MainWindowDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MainWindowDialog) {
     ui->setupUi(this);
 
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
-
-    /* set the image to the history label */
-    QPixmap pixmap("images/history_label_image.png");
-    QIcon buttonIcon(pixmap);
-    ui->imgBtn->setIcon(buttonIcon);
-    ui->imgBtn->setIconSize(pixmap.rect().size());
-    ui->imgBtn->setFixedSize(pixmap.rect().size());
-    /* hide the history label */
-    ui->historyLabel->setVisible(historyLabelVisible);
 }
 
 MainWindowDialog::~MainWindowDialog() {
     delete ui;
-}
-
-void MainWindowDialog::on_imgBtn_clicked() {
-    historyLabelVisible = !historyLabelVisible;
-    ui->historyLabel->setVisible(historyLabelVisible);
 }
 
 /* UTILITIES BUTTONS */
@@ -150,10 +135,6 @@ void MainWindowDialog::on_DivisionBtn_clicked() {
     ui->numbersBox->clear();
 }
 
-void MainWindowDialog::on_commaBtn_clicked() {
-    if(!ui->numbersBox->text().length()) { return; }
-}
-
 /* + / - */
 void MainWindowDialog::on_plusMinusBtn_clicked() {
     if(!ui->numbersBox->text().length()) { return; }
@@ -228,10 +209,12 @@ void MainWindowDialog::on_equalsBtn_clicked() {
     default:
         break;
     }
+    cleanAfter = true;
 }
 
 /* check if the user doesn't pass the max lengh */
 void MainWindowDialog::on_numbersBox_textChanged(const QString &arg1) {
+    if(cleanAfter) { ui->numbersBox->clear(); cleanAfter = false; }
     if(arg1.length() > numbersLimit) { ui->numbersBox->backspace(); }
 }
 
@@ -304,3 +287,9 @@ void MainWindowDialog::keyPressEvent(QKeyEvent *event) {
         break;
     }
 }
+
+void MainWindowDialog::on_PiGreco_clicked() {
+    ui->numbersBox->setText("3,1415926535");
+    cleanAfter = true;
+}
+
